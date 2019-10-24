@@ -10,13 +10,13 @@ package mariospizzabar;
  * @author Cecilie
  */
 public class Pizza {
-    private int nummer;
-    private String navn;
-    private String fyld;
-    private int pris;
-    private String nyhed;
+    public int nummer;
+    public String navn;
+    public String[] fyld;
+    public int pris;
+    public boolean nyhed;
 
-    public Pizza(int nummer, String navn, String fyld, int pris, String nyhed) {
+    public Pizza(int nummer, String navn, String[] fyld, int pris, boolean nyhed) {
         this.nummer = nummer;
         this.navn = navn;
         this.fyld = fyld;
@@ -40,11 +40,11 @@ public class Pizza {
         this.navn = navn;
     }
 
-    public String getFyld() {
+    public String[] getFyld() {
         return fyld;
     }
 
-    public void setFyld(String fyld) {
+    public void setFyld(String[] fyld) {
         this.fyld = fyld;
     }
 
@@ -56,17 +56,20 @@ public class Pizza {
         this.pris = pris;
     }
 
-    public String getNyhed() {
+    public boolean getNyhed() {
         return nyhed;
     }
 
-    public void setNyhed(String nyhed) {
+    public void setNyhed(boolean nyhed) {
         this.nyhed = nyhed;
     }
+
+    @Override
+    public String toString() {
+        return "Pizza{" + "nummer=" + nummer + ", navn=" + navn + ", fyld=" + fyld + ", pris=" + pris + ", nyhed=" + nyhed + '}';
+    }
     
-  @Override
-   public String toString(){
-     return nummer + ". " + navn + ". " + fyld + ". " + pris + ". " +
+ 
    }
-   }
+   
 
