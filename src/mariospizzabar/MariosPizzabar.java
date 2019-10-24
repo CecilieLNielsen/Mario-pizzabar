@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  * @author Cecilie
  */
 public class MariosPizzabar {
+
     public static void main(String[] args) {
         Menukort bestillingsliste = new Menukort();
         try {
@@ -21,6 +22,6 @@ public class MariosPizzabar {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MariosPizzabar.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 }

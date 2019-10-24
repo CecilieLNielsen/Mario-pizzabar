@@ -17,11 +17,10 @@ import java.util.Scanner;
  */
 public class Menukort {
 
-   ArrayList<Pizza> menukort = new ArrayList<Pizza>();
-
+    ArrayList<Pizza> menukort = new ArrayList<Pizza>();
 
     public void opretMenukort() throws FileNotFoundException {
-        File fil = new File("Menukort.txt");
+        File fil = new File("menukort.txt");
         Scanner sc = new Scanner(fil);
 
         while (sc.hasNextLine()) {

@@ -10,6 +10,7 @@ package mariospizzabar;
  * @author Cecilie
  */
 public class Pizza {
+
     public int nummer;
     public String navn;
     public String[] fyld;
@@ -68,8 +69,5 @@ public class Pizza {
     public String toString() {
         return "Pizza{" + "nummer=" + nummer + ", navn=" + navn + ", fyld=" + fyld + ", pris=" + pris + ", nyhed=" + nyhed + '}';
     }
-    
- 
-   }
-   
 
+}
