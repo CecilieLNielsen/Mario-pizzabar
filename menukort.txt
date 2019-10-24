@@ -1,15 +1,14 @@
- 1. Vesuvio: tomatsauce,ost,skinke,oregano ................................... 57,-
- 2. Amerikaner: tomatsauce,ost,oksefars,oregano .............................. 53,- (NYHED)
- 3. Cacciatore: tomatsauce,ost,oksefars,oregano .............................. 57,-
- 4. Carbona: tomatsauce,ost,oksefars,oregano ................................. 63,- (NYHED)
- 5. Dennis: tomatsauce,ost,skinke,pepperoni,cocktailpølser,oregano ........... 65,- (NYHED) 
- 6. Bertil: tomatsauce,ost,bacon,oregano ..................................... 57,-
- 7. Silvia: tomatsauce,ost,pepperoni,rød,peber,løg,oliven,oregano ............ 57,-
- 8. Victoria: tomatsuce,ost,skinke,ananas,champignon,oregano ................. 61,-
- 9. Toronfo: tomatsauce,ost,skinke,bacon,kebab,chilli,oregano ................ 61,- (NYHED)
-10. Capricciosa: tomatsauce,ost,skinke,champignon,oregano .................... 61,-
-11. Hawaii: tomatsauce,ost,skinke,rejer,oregano .............................. 61,-
-12. Le Blissola: tomatsauce,ost,skinke,rejer,oregano ......................... 61,-
-12. Venezia: tomatsuce,ost,skinke,bacon,oregano .............................. 61,-
-14. Mafia: tomatsauce,ost,skinke,pepperoni,bacon,løg,oregano.................. 61,- 
-
+1. Vesuvio: tomatsauce,ost,skinke,oregano 57,-
+2. Amerikaner: tomatsauce,ost,oksefars,oregano 53,- (NYHED)
+3. Cacciatore: tomatsauce,ost,oksefars,oregano 57,-
+4. Carbona: tomatsauce,ost,oksefars,oregano 63,- (NYHED)
+5. Dennis: tomatsauce,ost,skinke,pepperoni,cocktailpoelser,oregano 65,- (NYHED) 
+6. Bertil: tomatsauce,ost,bacon,oregano 57,-
+7. Silvia: tomatsauce,ost,pepperoni,roed,peber,loeg,oliven,oregano 57,-
+8. Victoria: tomatsuce,ost,skinke,ananas,champignon,oregano 61,-
+9. Toronfo: tomatsauce,ost,skinke,bacon,kebab,chilli,oregano 61,- (NYHED)
+10. Capricciosa: tomatsauce,ost,skinke,champignon,oregano 61,-
+11. Hawaii: tomatsauce,ost,skinke,rejer,oregano 61,-
+12. LeBlissola: tomatsauce,ost,skinke,rejer,oregano 61,-
+13. Venezia: tomatsuce,ost,skinke,bacon,oregano 61,-
+14. Mafia: tomatsauce,ost,skinke,pepperoni,bacon,loeg,oregano 61,- 
