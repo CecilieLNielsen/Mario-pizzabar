@@ -11,4 +11,4 @@
 11. Hawaii: tomatsauce,ost,skinke,rejer,oregano 61,-
 12. LeBlissola: tomatsauce,ost,skinke,rejer,oregano 61,-
 13. Venezia: tomatsuce,ost,skinke,bacon,oregano 61,-
-14. Mafia: tomatsauce,ost,skinke,pepperoni,bacon,loeg,oregano 61,- 
+14. Mafia: tomatsauce,ost,skinke,pepperoni,bacon,loeg,oregano 61,-
