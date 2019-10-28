@@ -1,0 +1,8 @@
+        public String oversætBoolean() {
+        String værdi;
+          if (nyhed) {
+            værdi = "(Nyhed!)";
+            } else 
+              værdi = "";
+          return værdi;
+    }
