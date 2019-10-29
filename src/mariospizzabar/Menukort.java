@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Menukort {
 
-    ArrayList<Pizza> menukort = new ArrayList<Pizza>();
+    private ArrayList<Pizza> menukort = new ArrayList<Pizza>();
 
     public void opretMenukort() throws FileNotFoundException {
         File fil = new File("menukort.txt");
@@ -33,17 +33,40 @@ public class Menukort {
             boolean nyhed = false;
             if (details.length == 5) {
                 nyhed = true;
-
-                Pizza p = new Pizza(nummer, navn, fyld, pris, nyhed);
-                menukort.add(p);
             }
+            Pizza p = new Pizza(nummer, navn, fyld, pris, nyhed);
+            menukort.add(p);
 
-            for (Pizza p : menukort) {
-                System.out.println(p.toString());
-
-            }
-
+            System.out.println(p.toString());
         }
 
     }
+
+    public String bestilling() {
+        Scanner sc = new Scanner(System.in);
+        String bestilling = "";
+
+        System.out.print("Pizza: ");
+        String pizzaIn = sc.next();
+        try {
+            Scanner scan = new Scanner(new File("Menukort.txt"));
+            while (scan.hasNext()) {
+                String line = scan.nextLine().toString();
+                if (line.contains(pizzaIn)) {
+                    bestilling = line;
+                    System.out.println(line);
+
+                }
+            }
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+
+        return "";
+    }
+
+    ArrayList<Pizza> getMenukort() {
+        return menukort;
+    }
+
 }

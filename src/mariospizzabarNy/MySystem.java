@@ -1,4 +1,4 @@
-package mariospizzabar;
+package mariospizzabarNy;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -50,7 +50,7 @@ public class MySystem {
                 System.out.println("Bestilling afsluttet.");
                 System.out.println();
             }
-          }
+        }
     }
 
     public void visMenukort() {
@@ -93,9 +93,8 @@ public class MySystem {
 //
 //        String pizza1 = reader.readLine();
 //    }
-
     public Menukort getMenukort() {
         return menukort;
     }
-  
-  }
+
+}

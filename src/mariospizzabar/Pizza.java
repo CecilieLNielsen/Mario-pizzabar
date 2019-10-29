@@ -67,7 +67,13 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" + "nummer=" + nummer + ", navn=" + navn + ", fyld=" + fyld + ", pris=" + pris + ", nyhed=" + nyhed + '}';
+        String str = "Pizza{" + "nummer=" + nummer + ", navn=" + navn + ", fyld=";
+        for (String temp : fyld) {
+            str += temp + " ";
+        }
+        str += "pris=" + pris + ", nyhed=" + nyhed + '}';
+
+        return str;
     }
 
 }

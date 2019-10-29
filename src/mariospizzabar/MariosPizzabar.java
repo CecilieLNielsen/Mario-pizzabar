@@ -6,6 +6,7 @@
 package mariospizzabar;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,13 +16,27 @@ import java.util.logging.Logger;
  */
 public class MariosPizzabar {
 
-    public static void main(String[] args) {
-        Menukort bestillingsliste = new Menukort();
-        try {
-            bestillingsliste.opretMenukort();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MariosPizzabar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    Menukort menukort;
+
+    public void start() throws FileNotFoundException {
+        menukort = new Menukort();
+        menukort.opretMenukort();
+        opretBestilling();
+        visMenukort();
 
     }
+
+    public void opretBestilling() {
+        menukort.bestilling();
+    }
+
+    public void visMenukort() {
+        ArrayList<Pizza> menu = menukort.getMenukort();
+        System.out.println(menu.size());
+        for (Pizza pizza : menu) {
+
+            System.out.println(pizza);
+        }
+    }
+
 }
