@@ -1,10 +1,12 @@
 package mariospizzabar;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,9 +18,9 @@ import java.util.Scanner;
 public class Menukort {
 
     private ArrayList<Pizza> menukort = new ArrayList<Pizza>();
-    File file = new File("bestillinger.txt");
-    File file1 = new File("pizzapopularitet.txt");
-    
+    File alleBestillinger = new File("bestillinger.txt");
+    File popularitet = new File("pizzapopularitet.txt");
+
     public void opretMenukort() throws FileNotFoundException {
         File fil = new File("menukort.txt");
         Scanner sc = new Scanner(fil);
@@ -37,45 +39,55 @@ public class Menukort {
             Pizza p = new Pizza(nummer, navn, fyld, pris, nyhed);
             menukort.add(p);
 
-         //   System.out.println(p.toString());
         }
 
     }
 
     public String vælgPizza() throws IOException {
         Scanner sc = new Scanner(System.in);
-        String bestilling = "";
-        
-        BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter(file1, true));
-        
+        String pizzaNavn = "";
+
         System.out.print("Pizza: ");
-        String pizzaIn = sc.next();
-        try{
-            Scanner scan = new Scanner(new File("Menukort.txt"));
-            while (scan.hasNext()) {
-                String valgtPizza = scan.nextLine().toString();
-                if(valgtPizza.contains(pizzaIn))
-                {
-                    bestilling = valgtPizza; 
-                    System.out.println(valgtPizza);
-                    bw.write(valgtPizza);
-                    bw1.write(valgtPizza);
-                    bw.newLine();
-                    bw1.newLine();
-                    bw.close();
-                    bw1.close();
-                    
+        int valgtPizzaNummer = sc.nextInt();
+        try {
+            while (valgtPizzaNummer != 0) {
+                if (valgtPizzaNummer > 0 && valgtPizzaNummer <= menukort.size()) {
+                    pizzaNavn = menukort.get(valgtPizzaNummer - 1).navn;
+                    System.out.println(pizzaNavn);
+                    gemBestilling(pizzaNavn);
+
                 }
+                System.out.print("Pizza: ");
+                valgtPizzaNummer = sc.nextInt();
             }
-        }catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.print(e);
         }
-        
-        
-return "";
+
+        return "";
     }
+
+    public void gemBestilling(String pizzaNavn) throws IOException {
+
+        ArrayList<String> gemBestillinger = new ArrayList<>();
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(alleBestillinger, true));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter(popularitet, true));
+        bw.write(pizzaNavn);
+        bw1.write(pizzaNavn);
+        bw.newLine();
+        bw1.newLine();
+        bw.close();
+        bw1.close();
+    }
+    
+//    public void fjernPizza (){
+//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+//        String fjernPizza = reader.readLine();
+//                while((fjernPizza = br.readLine()) != null) {
+//                    if(!fjernPizza)
+//                }
+//    }
 
     ArrayList<Pizza> getMenukort() {
         return menukort;
