@@ -17,6 +17,7 @@ public class Menukort {
 
     private ArrayList<Pizza> menukort = new ArrayList<Pizza>();
     File file = new File("bestillinger.txt");
+    File file1 = new File("pizzapopularitet.txt");
     
     public void opretMenukort() throws FileNotFoundException {
         File fil = new File("menukort.txt");
@@ -46,6 +47,7 @@ public class Menukort {
         String bestilling = "";
         
         BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter(file1, true));
         
         System.out.print("Pizza: ");
         String pizzaIn = sc.next();
@@ -58,8 +60,11 @@ public class Menukort {
                     bestilling = valgtPizza; 
                     System.out.println(valgtPizza);
                     bw.write(valgtPizza);
+                    bw1.write(valgtPizza);
                     bw.newLine();
+                    bw1.newLine();
                     bw.close();
+                    bw1.close();
                     
                 }
             }
