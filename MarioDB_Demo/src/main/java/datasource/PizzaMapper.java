@@ -42,14 +42,15 @@ public class PizzaMapper {
     }
 
     public void indsætPizza(Pizza pizza) {
-        String SQL = "INSERT INTO pizzabestillinger (name, description, price) VALUES (?, ?, ?)";
-        con = DatabaseConnector.getConnection();
-        PreparedStatement ps;
         try {
-            ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            String SQL = "INSERT INTO pizzabestillinger (name, description, price) VALUES (?, ?, ?)";
+            con = DatabaseConnector.getConnection();
+            
+            PreparedStatement ps = con.prepareStatement(SQL,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, pizza.getNavn());
             ps.setString(2, pizza.getFyld());
             ps.setInt(3, pizza.getPris());
+            //ps.setInt(4, quantity);
             ps.executeUpdate();
 
             ResultSet ids = ps.getGeneratedKeys();
@@ -67,4 +68,34 @@ public class PizzaMapper {
             System.out.println(pizza);
         }
     }
+    
+    public ArrayList<Pizza> seBestillinger() throws SQLException{
+        Statement stmt;
+        ArrayList<Pizza> pizzaer = new ArrayList();
+        Pizza pizza;
+
+        con = DatabaseConnector.getConnection();
+        stmt = con.createStatement();
+
+        try {
+
+            con = DatabaseConnector.getConnection();
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM pizzabestillinger");
+
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String description = rs.getString("description");
+                int price = rs.getInt("price");
+                pizza = new Pizza(id, name, description, price);
+                pizzaer.add(pizza);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        return pizzaer;
+    }
+    
 }

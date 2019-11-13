@@ -8,12 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MySystem {
 
     private Menukort menukort;
-    Menukort menukort2;
     MySystem system;
+    private PizzaMapper pm = new PizzaMapper();
 
     public MySystem(){
     }
@@ -47,6 +49,11 @@ public class MySystem {
                 fjernBestilling();
                 System.out.println();
             } else if (input == 4) {
+//                try {
+//                    pm.seBestillinger();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(MySystem.class.getName()).log(Level.SEVERE, null, ex);
+//                }
                 seBestilling();
                 System.out.println();
             } else if (input == 5) {
@@ -57,24 +64,43 @@ public class MySystem {
     }
 
     public void visMenukort() {
-        ArrayList<Pizza> pizzaListe = menukort.getMenukort();
+        try {
+        ArrayList<Pizza> pizzaListe = pm.getPizzas();
         for (Pizza pizza : pizzaListe) {
             System.out.println(pizza);
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(MySystem.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void fjernBestilling() throws IOException {
-        menukort.rydBestillinger();
+        try {
+            menukort.rydBestillinger();
+        } catch (SQLException ex) {
+            Logger.getLogger(MySystem.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public void seBestilling() throws FileNotFoundException, IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader("bestillinger.txt"))) {
-            String valgtePizzaer;
-            while ((valgtePizzaer = br.readLine()) != null) {
-                System.out.println(valgtePizzaer);
+        try {
+            ArrayList<Pizza> pizzaListe = pm.seBestillinger();
+            for (Pizza pizza : pizzaListe) {
+                System.out.println(pizza);
             }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MySystem.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+//        try (BufferedReader br = new BufferedReader(new FileReader("bestillinger.txt"))) {
+//            String valgtePizzaer;
+//            while ((valgtePizzaer = br.readLine()) != null) {
+//                System.out.println(valgtePizzaer);
+//            }
+//        }
     }
 
     public List<String> læsPopularitet() {
@@ -116,12 +142,12 @@ public class MySystem {
         return menukort;
     }
 
-    public void init() throws FileNotFoundException, IOException, SQLException {
-        menukort2 = new Menukort();
-        system = new MySystem(menukort2);
-        menukort2.opretMenukort();
-        system.runPizza();
-    }
+//    public void init() throws FileNotFoundException, IOException, SQLException {
+//        menukort2 = new Menukort();
+//        system = new MySystem(menukort2);
+//        menukort2.opretMenukort();
+//        system.runPizza();
+//    }
 
     public void opretBestillingsListe() throws IOException {
         system.runPizza();

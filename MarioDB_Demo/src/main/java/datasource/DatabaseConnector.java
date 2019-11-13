@@ -16,7 +16,7 @@ public class DatabaseConnector {
     private static final String PASSWORD = "kakarot10";
     private static Connection con = null;
     
-    private DatabaseConnector() {
+    DatabaseConnector() {
         
     }
     
